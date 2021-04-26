@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+//  TODO checar o *tc*
+
 module mod10(
     input wire [3:0] data,
     input wire loadn, clrn, clk, en,
@@ -7,32 +9,32 @@ module mod10(
     output reg tc, zero
 );
 
-    always @ (posedge clk, negedge clrn) begin
+    always @ (posedge clk or negedge clrn) begin
         
-        if(~en);
-        else if(~loadn) begin
-            ones <= data;
-            if(data == 4'b0000)
-                zero <= tc <= 1;
-            else 
-                zero <= tc <= 0;
-        end
-        else if(clrn) begin
-            ones <= 4'b0000;
-            tc <= 1;
-            zero <= 1;
+        if(!clrn) begin
+            ones <= 0;
+            tc <= zero <= 1;
         end
         else begin
-                
-            if(ones == 0) begin
-                ones <= 9;
-                tc <= 1;
-                zero <= 1;
-            end
-            else begin
-                ones <= (ones-1)%10;
-                tc <= 0;
-                zero <= 0;
+            if(en) begin
+                if(!loadn) begin
+                    ones <= data;
+                    if(data == 0)
+                        tc <= zero <= 1;       
+                    else
+                        tc <= zero <= 0;
+                end 
+                else begin
+                    
+                    if(ones == 0)  begin
+                        ones <= 9;
+                        tc <= zero <= 1;
+                    end
+                    else begin
+                        tc <= zero <= 0;
+                        ones <= (ones-1)%10;
+                    end
+                end 
             end
         end
     end
