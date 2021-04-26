@@ -8,7 +8,7 @@ module tb_mod10;
     wire tc, zero;
     integer ticks=0;
 
-    mod6 countdown(.data(data), .loadn(loadn), .clrn(clrn), .clk(clk), .en(en), .ones(ones), .tc(tc), .zero(zero) );
+    mod6 countdown(.data(data), .loadn(loadn), .clrn(clrn), .clk(clk), .en(en), .out(ones), .tc(tc), .zero(zero) );
 
     initial begin
         clrn = 0;

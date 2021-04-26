@@ -5,20 +5,20 @@
 module mod10(
     input wire [3:0] data,
     input wire loadn, clrn, clk, en,
-    output reg [3:0] ones,
+    output reg [3:0] out,
     output reg tc, zero
 );
 
     always @ (posedge clk or negedge clrn) begin
         
         if(!clrn) begin
-            ones <= 0;
+            out <= 0;
             tc <= zero <= 1;
         end
         else begin
             if(en) begin
                 if(!loadn) begin
-                    ones <= data;
+                    out <= data;
                     if(data == 0)
                         tc <= zero <= 1;       
                     else
@@ -26,13 +26,13 @@ module mod10(
                 end 
                 else begin
                     
-                    if(ones == 0)  begin
-                        ones <= 9;
+                    if(out == 0)  begin
+                        out <= 9;
                         tc <= zero <= 1;
                     end
                     else begin
                         tc <= zero <= 0;
-                        ones <= (ones-1)%10;
+                        out <= (out-1)%10;
                     end
                 end 
             end

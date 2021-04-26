@@ -9,3 +9,7 @@ mod10:
 mod6:
 	iverilog -o bin/mod6 src/timer/mod6.v testbenches/tb_mod6.v
 	vvp bin/mod6
+
+timer:
+	iverilog -o bin/timer src/timer/mod10.v src/timer/mod6.v src/timer/timer.v
+	vvp bin/timer
