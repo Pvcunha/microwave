@@ -3,9 +3,9 @@
 module bcd_seven (bcd, seven);
 
     input [3:0] bcd;
-    output[7:1] seven;
+    output[6:0] seven;
 
-    reg [7:1] seven;
+    reg [6:0] seven;
 
     always @(bcd)
     begin
