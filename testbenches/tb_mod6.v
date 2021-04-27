@@ -23,8 +23,6 @@ module tb_mod10;
     initial begin
         loadn = 1; data = 4; en = 1;
         #10 loadn = 0; loadn = #5 1;
-
-
     end
     initial begin
         $dumpfile("vcd/mod6.vcd");
