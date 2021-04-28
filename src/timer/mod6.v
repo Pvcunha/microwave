@@ -1,39 +1,47 @@
-module mod6(output reg [3:0] out,
-                     output reg tc, zero,
-                     input wire [3:0] data,
-                     input wire loadn, clrn, clk, en);
+`timescale 1ns/1ps
 
-always @(posedge clk or negedge clrn) begin
+//  TODO checar o *tc*
 
-  if(!clrn)
-    out <= 0;
-  else if(!loadn)
-    out <= data;
+module mod6(
+    input wire [3:0] data,
+    input wire loadn, clrn, clk, en,
+    output reg [3:0] out,
+    output reg tc, zero
+);
 
-  else begin
-    if (en)
-      begin
-        if(out==1)
-          begin
-            out<=out-1;
-            #20 tc<=1;
-          end
-        else if(out==0)
-          begin
-            tc<=0;
-            zero<=1;
-            out<=5;
-          end
-        else begin
-          tc<=0;
-          zero<=0;
-          out<=out-1;        
+    always @ (posedge clk or negedge clrn) begin
+        
+        if(!clrn) begin
+            out = 0;
+            tc = 0;
+            zero = 0;
         end
-      end  
-    else
-      begin
-        tc<=0;
-      end    
-  end
-end
+        else if(!loadn)
+            out <= data;
+        else begin
+            if(en) begin
+                if(out == 1) begin
+                    out <= out -1;
+                    zero <= 0;
+                    #20 tc <= 1;
+                end
+
+                else if(out == 0) begin
+                    out <= 5;
+                    zero <= 1;
+                    tc <= 0;
+                end
+                
+                else begin
+                    out <= out -1;
+                    zero <= 0;
+                    tc <= 0;
+                end
+            end 
+            else
+                tc <= 0;
+        end
+    end
+
+
 endmodule

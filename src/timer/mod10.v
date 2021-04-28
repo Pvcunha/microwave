@@ -16,22 +16,28 @@ module mod10(
             tc = 0;
             zero = 0;
         end
-        else if(!loadn) begin
+        else if(!loadn)
             out <= data;
-        end 
         else begin
             if(en) begin
-               if(out == 0)  begin
-                    out <= 9;
-                    tc <= 0;
+                if(out == 1) begin
+                    out <= out -1;
                     zero <= 0;
+                    tc <= 1;
                 end
+
+                else if(out == 0) begin
+                    out <= 9;
+                    zero <= 1;
+                    tc <= 0;
+                end
+                
                 else begin
-                    out <= out-1;
-                    tc <= (out-1 == 0?  1: 0);
-                    zero <= (out-1== 0? 1: 0);
-                end 
-            end
+                    out <= out -1;
+                    zero <= 0;
+                    tc <= 0;
+                end
+            end 
             else
                 tc <= 0;
         end
