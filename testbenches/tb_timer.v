@@ -25,12 +25,17 @@ module test_timer;
     .mins(mins),
     .zero(zero)
     );
- 
+
+    initial begin
+        clrn = 0;
+        #1 clrn = 1;
+    end
+
 always #1 clk <= ~clk;
 
 initial 
   begin
-  $dumpfile("test_timer.vcd");
+  $dumpfile("vcd/timer.vcd");
   $dumpvars(0, test_timer);
   clk<=1;
   loadn<=0;
