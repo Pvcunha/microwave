@@ -11,5 +11,5 @@ mod6:
 	vvp bin/mod6
 
 timer:
-	iverilog -o bin/timer src/timer/mod10.v src/timer/mod6.v src/timer/timer.v
+	iverilog -o bin/timer src/timer/mod10.v src/timer/mod6.v src/timer/timer.v testbenches/tb_timer.v
 	vvp bin/timer

@@ -1,7 +1,9 @@
 module timer(
     input wire [3:0] data,
-    input wire loadn, clrn, clk,
-    output wire [3:0] sec_ones, sec_tens, mins,
+    input wire loadn, clrn, clk, en,
+    output wire [3:0] sec_ones, 
+    output wire [3:0] sec_tens, 
+    output wire [3:0] mins,
     output wire zero 
 );
     wire tc_ones, tc_tens, tc_mins, zero_ones, zero_tens, zero_mins;
