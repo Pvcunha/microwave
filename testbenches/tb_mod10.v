@@ -18,8 +18,11 @@ module tb_mod10;
     initial 
         clk = 0;
     
-    always #10 clk = ~clk;
-
+    always begin 
+        #10 clk = ~clk; ticks++;
+        if(ticks == 300) 
+            $finish;
+    end
     initial begin
         loadn = 1; data = 4; en = 1;
         #10 loadn = 0; loadn = #5 1;

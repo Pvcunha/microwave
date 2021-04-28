@@ -9,44 +9,37 @@ module mod6(
     output reg tc, zero
 );
 
-     always @ (posedge clk or negedge clrn) begin
+    always @ (posedge clk or negedge clrn) begin
         
         if(!clrn) begin
             out = 0;
             tc = 0;
-            zero = 1;
+            zero = 0;
         end
+        else if(!loadn)
+            out <= data;
         else begin
             if(en) begin
-                if(!loadn) begin
-                    out <= data;
-                    if(data == 0) begin
-                        tc <= 1;
-                        zero <= 1;
-                    end       
-                    else begin
-                        tc <= 0;
-                        zero <= 0;
-                    end
+                if(out == 1) begin
+                    out <= out -1;
+                    zero <= 0;
+                    #20 tc <= 1;
                 end
+
+                else if(out == 0) begin
+                    out <= 5;
+                    zero <= 1;
+                    tc <= 0;
+                end
+                
                 else begin
-                    
-                    if(out == 0)  begin
-                        out <= 5;
-                        tc <=  1;
-                        zero <= 0;
-                    end
-                    else if(out == 1) begin
-                        out <= (out-1)%6;
-                        tc <= 0;
-                        zero <= 1;
-                    end
-                    else begin
-                        out <= (out-1)%6;
-                        tc <= zero <= 0;
-                    end
-                end 
-            end
+                    out <= out -1;
+                    zero <= 0;
+                    tc <= 0;
+                end
+            end 
+            else
+                tc <= 0;
         end
     end
 
