@@ -23,13 +23,13 @@ module mod10(
             if(en) begin
                if(out == 0)  begin
                     out <= 9;
-                    tc =  1;
-                    zero <= 1;
+                    tc <= 0;
+                    zero <= 0;
                 end
                 else begin
-                     out <= out-1;
-                     tc <= 0;
-                     zero <= 0;
+                    out <= out-1;
+                    tc <= (out-1 == 0?  1: 0);
+                    zero <= (out-1== 0? 1: 0);
                 end 
             end
             else
