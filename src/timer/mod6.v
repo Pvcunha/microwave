@@ -16,42 +16,28 @@ module mod6(
             tc = 0;
             zero = 0;
         end
+        else if(!loadn) begin
+            out <= data;
+        end 
         else begin
             if(en) begin
-                if(!loadn) begin
-                    out <= data;
-                    if(data == 0) begin
-                        tc <= 1;
-                        zero <= 1;
-                    end       
-                    else begin
-                        tc <= 1;
-                        zero <= 0;
-                    end
-                end 
+                if(out == 0)  begin
+                    out <= 5;
+                    tc =  1;
+                    zero <= 1;
+                end
                 else begin
-                    
-                    // 4 3 2 1 0 9
-
-                    if(out == 0)  begin
-                        out <= 5;
-                        tc <=  0;
-                        zero <= 0;
-                    end
-                    else if(out == 1) begin
-                        out <= out-1;
-                        tc <= 1;
-                        zero <= 1;
-                    end
-                    else begin
-                        out <= out-1;
-                        tc <= 0;
-                        zero <= 0;
-                    end
-                end 
+                    out <= out-1;
+                    tc <= 0;
+                    zero <= 0;
+                end
+             
             end
+            else
+                tc <= 0;
         end
     end
+    
 
 
 endmodule

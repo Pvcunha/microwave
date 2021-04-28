@@ -26,26 +26,15 @@ module tb_timer;
     
 
     initial begin
-        loadn<=0;
-        data<=4'b1001;
-        clrn<=1;
-        en<=1;
+        loadn = 0; en = 1;
         #20
-        loadn<=0;
-        data<=4'b0011;
-        clrn<=1;
-        en<=1;  
+        data = 4;
+        #20;
+        data = 3;
         #20
-        loadn<=0;
-        data<=4'b0010;
-        clrn<=1;
-        en<=1;  
-        #20
-        loadn<=1;
-        data<=4'b0011;
-        clrn<=1;
-        en<=1; 
-            
+        data = 2;
+        #10
+        loadn = 1;
     end
 
     initial begin
