@@ -9,12 +9,12 @@ module mod6(
     output reg tc, zero
 );
 
-     always @ (posedge clk or negedge clrn) begin
+    always @ (posedge clk or negedge clrn) begin
         
         if(!clrn) begin
             out = 0;
             tc = 0;
-            zero = 1;
+            zero = 0;
         end
         else begin
             if(en) begin
@@ -25,25 +25,28 @@ module mod6(
                         zero <= 1;
                     end       
                     else begin
-                        tc <= 0;
+                        tc <= 1;
                         zero <= 0;
                     end
-                end
+                end 
                 else begin
                     
+                    // 4 3 2 1 0 9
+
                     if(out == 0)  begin
                         out <= 5;
-                        tc <=  1;
+                        tc <=  0;
                         zero <= 0;
                     end
                     else if(out == 1) begin
-                        out <= (out-1)%6;
-                        tc <= 0;
+                        out <= out-1;
+                        tc <= 1;
                         zero <= 1;
                     end
                     else begin
-                        out <= (out-1)%6;
-                        tc <= zero <= 0;
+                        out <= out-1;
+                        tc <= 0;
+                        zero <= 0;
                     end
                 end 
             end

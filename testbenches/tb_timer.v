@@ -16,25 +16,45 @@ module tb_timer;
     end
     
     initial 
-        clk = 0;
+        clk = 1;
     
-    always #10 clk = ~clk;
+    always begin
+        #10 clk = ~clk; ticks++;
+        if(ticks == 200) 
+            $finish;
+    end  
+    
 
     initial begin
-        loadn = 1; data = 4; en = 1;
-        #10 data = 5;
-        #10 data = 7;
-        #10 loadn = 0; loadn = #5 1;
-
-
+        loadn<=0;
+        data<=4'b1001;
+        clrn<=1;
+        en<=1;
+        #20
+        loadn<=0;
+        data<=4'b0011;
+        clrn<=1;
+        en<=1;  
+        #20
+        loadn<=0;
+        data<=4'b0010;
+        clrn<=1;
+        en<=1;  
+        #20
+        loadn<=1;
+        data<=4'b0011;
+        clrn<=1;
+        en<=1; 
+            
     end
+
     initial begin
         $dumpfile("vcd/timer.vcd");
         $dumpvars;
     end
 
     initial
-    #1 $monitor("%i %i %i ", mins, sec_tens, sec_ones);
+    #1 $monitor("%d %d %d", mins, sec_tens, sec_ones);
     
 
 
