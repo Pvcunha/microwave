@@ -42,9 +42,10 @@ module tb_timer;
   	  	$dumpfile("vcd/timer.vcd");
   	  	$dumpvars;
 		loadn=0;
-  	  	#10 data = 9;
-  	  	#10 data = 8;
-  	  	#10 loadn = 1; en = 1;
+  	  	#10 data = 3;
+  	  	#10 data = 5;
+		#10 data = 9;
+  	  	#10 loadn =1; en = 1;
   	end
 
   //always @(zero) begin

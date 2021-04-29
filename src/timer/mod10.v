@@ -15,7 +15,6 @@ module mod10(
         
         if(~clrn) begin
             out <= 0;
-          
             zero <= 0;
         end
         else if(~loadn) begin
