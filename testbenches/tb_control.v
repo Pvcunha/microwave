@@ -36,7 +36,7 @@ module tb_control;
     end
 
     initial begin
-        $dumpfile("control.vcd");
+        $dumpfile("vcd/control.vcd");
         $dumpvars;
     end
     

@@ -1,0 +1,108 @@
+$date
+	Wed Apr 28 23:08:58 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_control $end
+$var wire 1 ! mag $end
+$var reg 1 " clearn $end
+$var reg 1 # door_closed $end
+$var reg 1 $ startn $end
+$var reg 1 % stopn $end
+$var reg 1 & timer_done $end
+$var integer 32 ' i [31:0] $end
+$scope module c $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var wire 1 ! mag $end
+$var wire 1 ( S $end
+$var wire 1 ) R $end
+$scope module SR $end
+$var wire 1 ( S $end
+$var wire 1 ) R $end
+$var reg 1 ! mag $end
+$upscope $end
+$scope module controle $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var reg 1 ) R $end
+$var reg 1 ( S $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0)
+1(
+bx '
+0&
+0%
+1$
+1#
+0"
+1!
+$end
+#4000
+0!
+1)
+0(
+1&
+1"
+1%
+0$
+b0 '
+#28000
+0"
+1$
+b1 '
+#52000
+0#
+1"
+0$
+b10 '
+#76000
+1#
+0"
+b11 '
+#100000
+0&
+0#
+b100 '
+#124000
+1&
+1#
+1"
+0%
+1$
+b101 '
+#148000
+0&
+0#
+0"
+b110 '
+#172000
+1&
+1#
+1"
+b111 '
+#196000
+0#
+0"
+1%
+b1000 '
+#220000
+0&
+b1001 '
+#244000
+b1010 '

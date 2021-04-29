@@ -17,3 +17,7 @@ timer:
 pencoder:
 	iverilog -o bin/pencoder src/encoder/priority_encoder.v testbenches/tb_priorEncoder.v
 	vvp bin/pencoder;
+
+control:
+	iverilog -o bin/control src/control/logic_control.v src/control/latch.v src/control/control.v testbenches/tb_control.v
+	vvp bin/control

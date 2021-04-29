@@ -25,7 +25,7 @@ module tb_decoder;
     end
 
     initial begin
-        $dumpfile("decoder.vcd");
+        $dumpfile("vcd/decoder.vcd");
         $dumpvars;
     end
     

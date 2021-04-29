@@ -31,7 +31,7 @@ module tb_latch;
     end
 
     initial begin
-        $dumpfile("latch.vcd");
+        $dumpfile("vcd/latch.vcd");
         $dumpvars;
     end
     
