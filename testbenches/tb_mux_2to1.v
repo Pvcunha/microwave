@@ -13,7 +13,7 @@ module tb_mux_2to1;
         $dumpfile("vcd/mux_2to1.vcd");
         $dumpvars;
         sel = 1'b0; #10
-        sel = 1'b1; #10
+        sel = 1'b1; #10 
         
         $finish;
     end
