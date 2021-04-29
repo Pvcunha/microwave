@@ -7,10 +7,10 @@ module tb_DivideBy100;
     integer contador=0;
     DivideBy100 DUT(.clk(clk), .clkOut(clk_out));
     
-    
-    initial 
+    initial begin
         clk = 0;
-    
+    end
+        
     always begin
        #10 clk = ~clk;
        contador++;
