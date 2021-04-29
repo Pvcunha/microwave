@@ -1,0 +1,27 @@
+#! /usr/bin/vvp
+:ivl_version "10.1 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x563533ea9570 .scope module, "latch" "latch" 2 3;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "R"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /OUTPUT 1 "mag"
+    .port_info 3 /OUTPUT 1 "magbar"
+o0x7fcb717a0018 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x563533ec9ae0 .functor NOR 1, o0x7fcb717a0018, L_0x563533ec9bd0, C4<0>, C4<0>;
+o0x7fcb717a0048 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x563533ec9bd0 .functor NOR 1, o0x7fcb717a0048, L_0x563533ec9ae0, C4<0>, C4<0>;
+v0x563533ea9760_0 .net "R", 0 0, o0x7fcb717a0018;  0 drivers
+v0x563533ec97e0_0 .net "S", 0 0, o0x7fcb717a0048;  0 drivers
+v0x563533ec98a0_0 .net "mag", 0 0, L_0x563533ec9ae0;  1 drivers
+v0x563533ec9970_0 .net "magbar", 0 0, L_0x563533ec9bd0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "latch.v";

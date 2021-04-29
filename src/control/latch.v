@@ -10,15 +10,15 @@ module latch (
     always @(R or S)
     begin
         
-        if(R)
+        if(R && !S)
             begin
                 mag <= 0;
             end
-        else if(S)
+        else if(S && !R)
             begin
                 mag <= 1;
             end
-
+  
       
     end
 

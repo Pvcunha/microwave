@@ -9,6 +9,8 @@ module control (
     output mag;
     wire  R,S;
 
+
+
     logic_control controle(.startn(startn),.stopn(stopn),.clearn(clearn),.door_closed(door_closed),.timer_done(timer_done),.S(S),.R(R));
     latch SR(.S(S),.R(R),.mag(mag));
 
