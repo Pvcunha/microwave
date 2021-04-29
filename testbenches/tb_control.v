@@ -19,7 +19,7 @@ module tb_control;
         $display("Start: %b, Stop: %b, clearn: %b, boor_closeb: %b, timer_bone: %b",startn,stopn,clearn,door_closed,timer_done);
         #2;
         $display("Mag : %b",mag);  
-        for(i = 0; i<10;i = i+1)begin
+        for(i = 0; i<3000;i = i+1)begin
             startn = $urandom%2; 
             stopn =$urandom%2;
             clearn = $urandom%2;

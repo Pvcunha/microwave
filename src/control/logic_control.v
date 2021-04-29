@@ -11,19 +11,24 @@ module logic_control (
 
 );
 
+    
+
     always @(startn or stopn or clearn or door_closed or timer_done)
     begin
-        
-        if(clearn || stopn || timer_done || !door_closed)
+        if(!clearn || !stopn || timer_done || !door_closed)
             begin
                 S = 0;
                 R = 1;
             end
-        else if(startn && door_closed)
+        else if(!startn && door_closed)
             begin
                 S = 1;
                 R = 0;
             end
+        else begin
+            S = 0;
+            R = 1;
+        end
 
       
     end
