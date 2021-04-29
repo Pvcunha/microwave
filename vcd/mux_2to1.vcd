@@ -1,0 +1,33 @@
+$date
+	Thu Apr 29 00:46:31 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_mux_2to1 $end
+$var wire 1 ! out $end
+$var reg 1 " DelayIn $end
+$var reg 1 # DivideBy100 $end
+$var reg 1 $ sel $end
+$scope module DUT $end
+$var wire 1 " DelayIn $end
+$var wire 1 # DivideBy100 $end
+$var wire 1 $ sel $end
+$var wire 1 ! out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+1"
+1!
+$end
+#10000
+0!
+1$
+#20000
