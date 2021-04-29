@@ -18,11 +18,11 @@ module priority_encoder(
                 10'b0000000100: bcd = 2;
                 10'b0000000010: bcd = 1;
                 10'b0000000001: bcd = 0;
-                default: bcd = 1'bxxx;
+                default: bcd = 3'bxxx;
             endcase
         end
         
-        data_valid = (keypad == 10'b0000000000)? 1 : 0;
+        data_valid = ((keypad == 10'b0000000000)? 1 : 0);
     end
 
      
