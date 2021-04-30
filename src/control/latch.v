@@ -18,6 +18,9 @@ module latch (
             begin
                 mag <= 1;
             end
+        else begin
+            mag <= mag;
+        end
   
       
     end

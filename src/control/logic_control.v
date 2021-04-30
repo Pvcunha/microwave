@@ -27,7 +27,7 @@ module logic_control (
             end
         else begin
             S = 0;
-            R = 1;
+            R = 0;
         end
 
       

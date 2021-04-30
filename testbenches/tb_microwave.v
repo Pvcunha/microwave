@@ -32,13 +32,17 @@ module tb_microwave;
 
     initial begin
         startn = 1; stopn = 1; clearn = 1; door_closed = 1;
-        #10 key = 10'b0000000010; // 1
+        #10 key = 10'b0000000100; // 2
         #10 key = 0;
-        #10 key = 10'b1000000000; // 9 
+        #10 key = 10'b0000100000; // 5
         #10 key = 0;
-        #10 key = 10'b1000000000; // 9
+        #10 key = 10'b0000010000; // 4
         #10 key = 0;
-        #100 startn = 0; 
+        #10 startn = 0; 
+        #10 startn=1;
+        #20000 door_closed = 0;
+        #10 door_closed = 1; 
+        
         /* F NISSO AQUI
         #200 startn = 1; clearn = 0;
         #5 clearn = 1;
