@@ -1,5 +1,3 @@
-//`timescale 1ns/1ps
-
 //  TODO checar o *tc*
 
 module mod6(
@@ -12,7 +10,7 @@ module mod6(
 
     assign tc = (en & ~out[0] & ~out[1] & ~out[2] & ~out[3]);
     
-    always @ (posedge clk or negedge clrn) begin
+    always @ (posedge clk or negedge clrn or loadn) begin
         
         if(~clrn) begin
             out <= 0;

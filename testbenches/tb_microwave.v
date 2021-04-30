@@ -19,26 +19,27 @@ module tb_microwave;
     always begin 
         #10 clk = ~clk;
         ticks++;
-        if(ticks == 300)
+        if(ticks == 30000)
             $finish;
     end
 
     initial begin
         key = 0;
-        clearn = 0;
-        #10 clearn = 1;
+        #1 clearn = 0;
+        #1 clearn = 1;
 
     end
 
     initial begin
-        startn = 0; stopn = 1; clearn = 1; door_closed = 1;
-        #10 key = 10'b0000000001; // 1
+        startn = 1; stopn = 1; clearn = 1; door_closed = 1;
+        #10 key = 10'b0000000010; // 1
         #10 key = 0;
-        #10 key = 10'b0000001000; // 4 
+        #10 key = 10'b1000000000; // 9 
         #10 key = 0;
-        #10 key = 10'b0000010000; // 5
+        #10 key = 10'b1000000000; // 9
         #10 key = 0;
-        #10 startn = 1;
+        #100 startn = 0;
+     
     end
 
     initial begin
@@ -47,7 +48,7 @@ module tb_microwave;
     end    
 
     initial
-        #1 $monitor(ones, tens, mins);
+        #1 $monitor("%b %b %b ", ones, tens, mins);
 
 
 endmodule

@@ -8,13 +8,13 @@ module encoder(
 );
     wire DataValid, outFreq, outDebounce;
     
-    priority_encoder DUT1(.keypad(Keypad), .enablen(Enablen), .bcd(D), .data_valid(DataValid));
+    priority_encoder pencoder(.keypad(Keypad), .enablen(Enablen), .bcd(D), .data_valid(DataValid));
     
-    DivideBy100 Dut2(.clk(clk), .clkOut(outFreq));
+    DivideBy100 div100(.clk(Clk), .clkOut(outFreq));
     
-    Debounce Dut3(.clock(Clk), .clear(DataValid), .out(outDebounce));
+    Debounce db(.clock(Clk), .clear(DataValid), .out(outDebounce));
     
-    mux_2to1 Dut4(.DelayIn(outDebounce), .DivideBy100(outFreq), .sel(Enablen), .out(pgt_1Hz));
+    mux_2to1 mux(.DelayIn(outDebounce), .DivideBy100(outFreq), .sel(Enablen), .out(pgt_1Hz));
     
     assign loadn = DataValid;
     
