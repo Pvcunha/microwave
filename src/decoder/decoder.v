@@ -7,7 +7,7 @@ module decoder (
 );
 
     input [3:0] sec_ones, sec_tens,min;
-    output[6:0] sec_ones_segs,sec_tens_segs,min_segs;
+    output[6:0] sec_ones_segs,sec_tens_segs, min_segs;
 
     bcd_seven sec_ones_module(.bcd(sec_ones),.seven(sec_ones_segs));
 

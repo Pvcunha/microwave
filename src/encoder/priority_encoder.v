@@ -7,7 +7,7 @@ module priority_encoder(
 
     always @ (*) begin
         if(!enablen) begin
-            case(keypad) 
+            case(keypad)
                 10'b1000000000: bcd = 9;
                 10'b0100000000: bcd = 8;
                 10'b0010000000: bcd = 7;
