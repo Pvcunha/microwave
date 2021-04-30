@@ -19,7 +19,7 @@ module microwave(
     encoder e( .Keypad(keypad), .Clk(clk), .Enablen(mag), .D(encoder_out), .pgt_1Hz(pgt_1hz), .loadn(loadn) );
 
     timer t( .data(encoder_out), .loadn(loadn), .clrn(clrn), .clk(pgt_1hz), .en(mag), .sec_ones(sec_ones), .sec_tens(sec_tens), .mins(mins), .zero(zero) );
-    decoder d( .sec_ones(sec_ones), .sec_tens(sec_tens), .min(mins), .sec_ones_segs(sec_ones_segs), .sec_tens_segs(sec_tens_segs), .min_segs(mins_segs) );
+    decoder d( .sec_ones(sec_ones), .sec_tens(sec_tens), .min(mins), .sec_ones_segs(sec_ones_segs), .sec_tens_segs(sec_tens_segs), .min_segs(min_segs) );
 
 
 endmodule
