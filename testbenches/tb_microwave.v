@@ -9,7 +9,7 @@ module tb_microwave;
     reg stopn;
     reg clearn;
     reg door_closed;
-
+    wire [6:0] ones, tens, mins;
 
     microwave m(.keypad(key), .clk(clk), .startn(startn), .stopn(stopn), .clearn(clearn), .door_closed(door_closed), .timer_done(timer_done));
     
@@ -20,7 +20,8 @@ module tb_microwave;
         #1 clk = ~clk;
 
     initial begin
-        
+        startn = 1; stopn = 1; clearn = 1; door_closed = 0;
+        #1;
     end
 
     initial begin
