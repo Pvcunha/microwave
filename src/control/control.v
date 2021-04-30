@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+//`timescale 1ns/1ps
 
 module control (
     startn,stopn,clearn,door_closed,timer_done,
