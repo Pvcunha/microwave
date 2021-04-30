@@ -33,8 +33,4 @@ module tb_Debounce;
     initial begin
         #1 $monitor("Contador: %d,  clock: %d,  clear: %d, saida: %d", contador, clk, clear, out);
     end
-        
-    
-
-
 endmodule

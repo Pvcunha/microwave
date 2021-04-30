@@ -8,7 +8,7 @@ module encoder(
 );
     wire DataValid, outFreq, outDebounce;
     
-    priority_encoder DUT1(.keypad(Keypad), .enablen(Enablen), .bcd(D), .data_valid(DataValid)); 
+    priority_encoder DUT1(.keypad(Keypad), .enablen(Enablen), .bcd(D), .data_valid(DataValid));
     
     DivideBy100 Dut2(.clk(clk), .clkOut(outFreq));
     
